@@ -1,0 +1,69 @@
+<!--左侧导航-->
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="nav-close"><i class="fa fa-times-circle"></i>
+    </div>
+    <div class="sidebar-collapse">
+        <ul class="nav">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs" style="font-size:20px;">
+                                <i class="fa fa-area-chart"></i>
+                                <strong class="font-bold">hAdmin</strong>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="logo-element">hAdmin
+                </div>
+            </li>
+            <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span class="ng-scope">分类</span>
+            </li>
+            <li>
+                <a href="/admin">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">主页</span>
+                </a>
+            </li>
+
+            <% navbar.forEach(function(item){ %>
+            <li>
+                <a href="<%=item.url%>">
+                    <i class="<%=item.icon%>"></i>
+                    <span class="nav-label"><%=item.name%></span>
+                    <% if(item.children.length){%>
+                    <span class="fa arrow"></span>
+                    <% } %>
+                </a>
+                <ul class="nav nav-second-level">
+                    <% item.children.forEach(function(itemTwo){ %>
+                    <li>
+                        <!-- 二级导航 -->
+                        <a href="<%=itemTwo.url%>">
+                            <%=itemTwo.name%>
+                            <% if(itemTwo.children.length){%>
+                            <span class="fa arrow"></span>
+                            <% } %>
+                        </a>
+                        <ul class="nav nav-third-level">
+                            <% itemTwo.children.forEach(function(children){ %>
+                            <li>
+                                <!-- 三级导航 -->
+                                <a href="<%=children.url%>">
+                                    <%=children.name%>
+                                </a>
+                            </li>
+                            <% }) %>
+                        </ul>
+                    </li>
+                    <% }) %>
+                </ul>
+            </li>
+
+            <% }) %>
+
+        </ul>
+    </div>
+</nav>

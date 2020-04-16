@@ -1,0 +1,101 @@
+<%- include("./public/header.html")%>
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>分类功能</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/admin">主页</a>
+            </li>
+            <li>
+                <strong>包屑导航</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <a href="/admin/navbar/add" class="btn btn-success">添加功能</a>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>名称</h3>
+            </div>
+            <div class="col-md-2">
+                <h3>数据库</h3>
+            </div>
+            <div class="col-md-2">
+                <h3>缩略图</h3>
+            </div>
+            <div class="col-md-2">
+                <h3>路径</h3>
+            </div>
+            <div class="col-md-3">
+                <h3>操作</h3>
+            </div>
+        </div>
+        <div id="treeview1" class="test treeview">
+            <ul class="list-group">
+                <% for(var i = 0;i < result.length;i++){ %>
+
+                    <li class="list-group-item node-treeview1 treeviewitem" data-nodeid="<%=result[i].level%>" style="">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <% for(var j = 1;j < result[i].level;j++){ %>
+                                <span class="indent"></span>
+                                <% } %>
+                                <% if(result[i].level == 1){ %>
+                                <span class="icon">
+                                    <i class="glyphicon glyphicon-stop"></i>
+                                </span>
+                                <% } %>
+                                <span class="icon"> 
+                                    <i class="<%=result[i].icon%>"></i>
+                                </span>
+                                <%=result[i].name%>
+                            </div>
+                            <div class="col-md-2">
+                                <%=result[i].database%>
+                            </div>
+                            <div class="col-md-2">
+                                <img height="25" src="<%=result[i].img%>" alt="">
+                            </div>
+                            <div class="col-md-2">
+                                <%=result[i].url%>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="/admin/navbar/del?_id=<%=result[i]._id%>" type="button" class="btn btn-danger">删除</a>
+                                <a href="/admin/navbar/edit?_id=<%=result[i]._id%>" type="button" class="btn btn-info">修改</a>
+                            </div>
+                        </div>
+                    </li>
+
+                <% } %>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<%- include("./public/footer.html")%>
+<script>
+    $(function(){
+        $(".treeviewitem").click(function(){
+            var level = $(this).data("nodeid");
+            console.log(level);
+            $(this).nextAll().each(function(index,el){
+                var nodeid = $(el).data("nodeid");
+                if(nodeid>level){
+                    $(el).toggle();
+                }else{
+                    return false;
+                }
+            })
+        })
+    })
+</script>

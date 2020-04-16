@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/list.css">
+	</head>
+	<body>
+		
+		<!-- 头部顶部导航 -->
+		<%- include("./public/header_top.html")%>
+
+		<!-- 导航条 -->
+		<%- include("./public/header_nav.html")%>
+		
+		
+		<!-- 轮播图 -->
+		<div class="slide">
+			<ul>
+				<li style="background-image: url(img/slide1.jpg);">
+				</li>
+			</ul>
+			<div class="container">
+				<div class="btn">
+					<div class="Lbtn"></div>
+					<div class="Rbtn"></div>
+				</div>
+				<ol class="clearfix">
+					<li class="con"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</div>
+		</div>
+		<!-- 轮播图end -->
+		
+		<div class="goodsList">
+			<div class="container">
+				<div class="box-hd clearfix">
+					<h1 class="fl">明星产品</h1>
+				</div>
+				<div class="box-bd">
+					<dl class="clearfix">
+						<dt class="fl m-bottom">
+							<img src="img/list1.jpg" alt="">
+							<div>
+								<h2>Redmi K20 Pro</h2>
+								<h5>骁龙855处理器, 弹出式极界全面屏</h5>
+								<span>2499 <i>元起</i></span>
+								<a href="">了解产品&gt;</a>
+							</div>
+						</dt>
+						<dd class="fl m-bottom">
+							<img src="img/list1.jpg" alt="">
+							<div>
+								<h2>Redmi K20 Pro</h2>
+								<h5>骁龙855处理器, 弹出式极界全面屏</h5>
+								<span>2499 <i>元起</i></span>
+							</div>
+						</dd>
+						<dd class="fr m-bottom">
+							<img src="img/list1.jpg" alt="">
+							<div>
+								<h2>Redmi K20 Pro</h2>
+								<h5>骁龙855处理器, 弹出式极界全面屏</h5>
+								<span>2499 <i>元起</i></span>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- 底部信息 -->
+		<%- include("./public/footer.html")%>
+		
+		
+	</body>
+</html>
